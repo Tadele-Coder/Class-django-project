@@ -14,6 +14,10 @@
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    
+    <!-- Fontawesome -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -23,6 +27,16 @@
     <!-- Navbar -->
 
      {% include 'webapp/navbar.html' %}
+
+     <!-- Notification messages -->
+      {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+
+        <p id="message-timer" class="alert alert-success float-center text-center message-text">
+            <i class="fa fa-check" aria-hidden="true"></i> &nbsp;{{message}}
+        </p>
+        {% endif %}
+      {% endfor %}
 
     {% block content %}
 

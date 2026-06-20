@@ -11,12 +11,12 @@
         {% if user.is_authenticated %}
         
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Dashboard &nbsp; <i class="fa fa-home" aria-hidden="true"></i> </a>
+              <a class="nav-link active" aria-current="page" href="{% url 'dashboard' %}">Dashboard &nbsp; <i class="fa fa-home" aria-hidden="true"></i> </a>
             </li>
 
             &nbsp; &nbsp; &nbsp;
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Signout &nbsp; <i class="fa fa-home" aria-hidden="true"></i> </a>
+              <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Signout &nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i> </a>
             </li>
 
             

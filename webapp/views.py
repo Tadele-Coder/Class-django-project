@@ -4,6 +4,7 @@ from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from . models import Record
+from django.contrib import messages
 
 
 # Home page
@@ -19,6 +20,7 @@ def registerView(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Account Created Successfully!')
             return redirect('my-login')
     context = {'form':form}
     return render(request, 'webapp/register.html', context=context)
@@ -55,6 +57,7 @@ def create_record(request):
         form = CreateRecordForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Your record was created!')
             return redirect('dashboard')
     context = {'form':form}
     return render(request, 'webapp/create-record.html', context=context)
@@ -69,6 +72,7 @@ def update_record(request, pk):
         form = UpdateRecordForm(request.POST, instance=record)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Your record was updated!')
             return redirect('dashboard')
     context = {'form': form}
     return render(request, 'webapp/update-record.html', context=context)
@@ -80,6 +84,7 @@ def update_record(request, pk):
 def user_logout(request):
 
     auth.logout(request)
+    messages.success(request, 'Logout success!')
     return redirect('my-login')
 
 # View/Read singular record
@@ -95,6 +100,7 @@ def singular_record(request,pk):
 def delete_record(request, pk):
     record = Record.objects.get(id=pk)
     record.delete()
+    messages.success(request, 'Your record was deleted!')
     return redirect('dashboard')
 
 

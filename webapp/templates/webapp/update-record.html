@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
- <div class="container bg-light shadow-md p-5 form-layout">
+ <div class="bg-light shadow p-5 form-layout">
             <h3>Update Record</h3>
             <h6>Update your record.</h6>
             <hr>
@@ -11,7 +11,7 @@
                 {% csrf_token %}
                 {{form|crispy}}
                 <br>
-                <button type="submit" class="btn btn-primary w-100  p-2">Update Record</button>
+                <button type="submit" class="btn btn-info w-100  p-2">Update Record &nbsp;<i class="fa fa-plus" aria-hidden="true"></i></button>
                 <br>
                 <br>
                 
